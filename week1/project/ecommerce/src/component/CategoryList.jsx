@@ -10,7 +10,7 @@ function CategoryList({ categories, selectedCategory, setSelectedCategory }) {
       {categories.map((category, index) => (
         <button
           key={index}
-          onClick={() => setSelectedCategory(category.replace("FAKE: ", ""))} // Remove "FAKE: " here
+          onClick={() => setSelectedCategory(category.replace("FAKE: ", ""))}
           className={
             selectedCategory === category.replace("FAKE: ", "") ? "active" : ""
           }

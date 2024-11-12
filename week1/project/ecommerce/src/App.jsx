@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>My E-commerce Site</h1>
+      <h1>Products</h1>
 
       <CategoryList
         categories={categories}
