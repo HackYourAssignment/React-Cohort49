@@ -1,15 +1,21 @@
-import React from "react";
-
-function CategoryList({ categories, selectedCategory, onSelectCategory }) {
+function CategoryList({ categories, selectedCategory, setSelectedCategory }) {
   return (
-    <div className="category-list">
-      {categories.map((category) => (
+    <div className="category-buttons">
+      <button
+        onClick={() => setSelectedCategory("all")}
+        className={selectedCategory === "all" ? "active" : ""}
+      >
+        All
+      </button>
+      {categories.map((category, index) => (
         <button
-          key={category}
-          className={category === selectedCategory ? "active" : ""}
-          onClick={() => onSelectCategory(category)}
+          key={index}
+          onClick={() => setSelectedCategory(category.replace("FAKE: ", ""))} // Remove "FAKE: " here
+          className={
+            selectedCategory === category.replace("FAKE: ", "") ? "active" : ""
+          }
         >
-          {category}
+          {category.replace("FAKE: ", "")}
         </button>
       ))}
     </div>

@@ -1,22 +1,29 @@
-import React, { useState } from "react";
-import CategoryList from "./components/CategoryList";
-import ProductList from "./components/ProductList";
+import { useState } from "react";
 import categories from "./data/categories";
 import products from "./data/products";
-import "./styles.css";
+import CategoryList from "./component/CategoryList";
+import ProductList from "./component/ProductCard";
+import "./index.css";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
+  const filteredProducts =
+    selectedCategory === "all"
+      ? products
+      : products.filter((product) => product.category === selectedCategory);
+
   return (
-    <div className="App">
-      <h1>My eCommerce Store</h1>
+    <div className="container">
+      <h1>My E-commerce Site</h1>
+
       <CategoryList
-        categories={["all", ...categories]}
+        categories={categories}
         selectedCategory={selectedCategory}
-        onSelectCategory={setSelectedCategory}
+        setSelectedCategory={setSelectedCategory}
       />
-      <ProductList products={products} selectedCategory={selectedCategory} />
+
+      <ProductList products={filteredProducts} />
     </div>
   );
 }
