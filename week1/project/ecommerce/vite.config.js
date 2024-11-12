@@ -4,7 +4,7 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/ecommerce/',
+  base: './week1/project/ecommerce/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
