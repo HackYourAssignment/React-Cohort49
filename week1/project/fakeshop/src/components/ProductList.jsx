@@ -1,23 +1,34 @@
-import React from 'react';
+import React from "react";
+import useCategoryStore from "../useCategoryStore";
+import products from "../fake-data/all-products";
 
-const ProductList = ({ products }) => {
+function ProductList() {
+  const { selectedCategory } = useCategoryStore();
+  console.log("its selectedCategory:", selectedCategory);
+
+  const filteredProducts = { selectedCategory }
+    ? products.filter((product) => product.category === selectedCategory)
+    : [];
+
+  console.log("Filtered Products:", typeof filteredProducts, filteredProducts); // Debugging step
+
   return (
-    <div className="product-list">
-      {products.length > 0 ? (
-        products.map((product) => (
-          <div key={product.id} className="product-card">
-            <img src={product.image} alt={product.title} />
-            <h2>{product.title}</h2>
+    <div>
+      {filteredProducts.length > 0 ? (
+        filteredProducts.map((product) => (
+          <div key={product.id}>
+            <p>{product.title}</p>
+            <p>{product.category}</p>
             <p>{product.description}</p>
-            <p>Price: ${product.price}</p>
-            <p>Rating: {product.rating.rate} ({product.rating.count} reviews)</p>
+            <p>{product.price}</p>
+            <img src={product.image} alt={product.title} />
           </div>
         ))
       ) : (
-        <p>No products available for this category.</p>
+        <p>Bu kategoride ürün bulunmamaktadır.</p>
       )}
     </div>
   );
-};
+}
 
 export default ProductList;

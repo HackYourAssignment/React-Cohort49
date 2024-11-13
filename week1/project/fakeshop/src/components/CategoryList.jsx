@@ -1,19 +1,27 @@
-// src/components/CategoryList.jsx
-import React from 'react';
+import React from "react";
+import useCategoryStore from "../useCategoryStore";
+import categories from "../fake-data/all-categories";
 
-const CategoryList = ({ categories, onCategoryClick }) => {
+function CategoryList() {
+  const { setSelectedCategory } = useCategoryStore();
+
+  const handleCategoryClick = (category) => {
+    const cleanCategory = category.replace("FAKE: ", "");
+    setSelectedCategory(cleanCategory);
+  };
+
   return (
-    <div className="category-list">
-      {categories.map((category, index) => (
-        <button key={index} onClick={() => { 
-          console.log("Category clicked: ", category); // Tıklanan kategoriyi kontrol edelim
-          onCategoryClick(category); 
-        }}>
-          {category}
-        </button>
-      ))}
+    <div>
+      <h1>Categories</h1>
+      <ul>
+        {categories.map((category, index) => (
+          <li key={index} onClick={() => handleCategoryClick(category)}>
+            {category.replace("FAKE: ", "")}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
+}
 
 export default CategoryList;
