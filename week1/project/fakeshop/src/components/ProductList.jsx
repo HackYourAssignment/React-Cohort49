@@ -25,7 +25,7 @@ function ProductList() {
           </div>
         ))
       ) : (
-        <p>Bu kategoride ürün bulunmamaktadır.</p>
+        <p>no item found.</p>
       )}
     </div>
   );
