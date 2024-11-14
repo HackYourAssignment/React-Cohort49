@@ -7,17 +7,18 @@ function CategoryList({ categories, selectedCategory, setSelectedCategory }) {
       >
         All
       </button>
-      {categories.map((category, index) => (
-        <button
-          key={index}
-          onClick={() => setSelectedCategory(category.replace("FAKE: ", ""))}
-          className={
-            selectedCategory === category.replace("FAKE: ", "") ? "active" : ""
-          }
-        >
-          {category.replace("FAKE: ", "")}
-        </button>
-      ))}
+      {categories.map((category, index) => {
+        const cleanCategory = category.replace("FAKE: ", "");
+        return (
+          <button
+            key={index}
+            onClick={() => setSelectedCategory(cleanCategory)}
+            className={selectedCategory === cleanCategory ? "active" : ""}
+          >
+            {cleanCategory}
+          </button>
+        );
+      })}
     </div>
   );
 }

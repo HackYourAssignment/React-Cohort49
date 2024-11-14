@@ -1,4 +1,4 @@
-function ProductList({ products }) {
+function ProductCard({ products }) {
   return (
     <div className="products">
       {products.map((product) => (
@@ -11,4 +11,4 @@ function ProductList({ products }) {
   );
 }
 
-export default ProductList;
+export default ProductCard;
