@@ -7,18 +7,20 @@ const PersonController = () => {
  
   const getPerson = async () => {
     try {
-      const response = await fetch("https://www.randomuser.me/api?results=1");
+      const response = await fetch("https://www.randomuser.me/api?results=10");
       const data = await response.json();
-
-      setPerson({
-        firstName: data.results[0].name.first,
-        lastName: data.results[0].name.last,
-        email: data.results[0].email,
-      });
+      setPerson(
+        data.results.map((result) => ({
+          firstName: result.name.first,
+          lastName: result.name.last,
+          email: result.email,
+        }))
+      );
     } catch (error) {
       console.error("Error fetching person:", error);
     }
   };
+  
 
   useEffect(() => {
     getPerson();

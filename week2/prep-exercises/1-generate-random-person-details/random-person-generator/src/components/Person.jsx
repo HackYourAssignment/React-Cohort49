@@ -5,11 +5,16 @@ const Person = ({ person }) => {
 
   return (
     <ul>
-      <li>First name: {person.firstName}</li>
-      <li>Last name: {person.lastName}</li>
-      <li>Email: {person.email}</li>
+      {person.map((p, index) => (
+        <li key={index}>
+          <p>First name: {p.firstName}</p>
+          <p>Last name: {p.lastName}</p>
+          <p>Email: {p.email}</p>
+        </li>
+      ))}
     </ul>
   );
 };
 
 export default Person;
+
