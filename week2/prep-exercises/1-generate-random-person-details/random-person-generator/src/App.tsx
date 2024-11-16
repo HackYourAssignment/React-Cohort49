@@ -1,7 +1,7 @@
 import React from "react";
 import PersonController from "./components/PersonController";
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div>
       <h1>Random Person Generator</h1>
