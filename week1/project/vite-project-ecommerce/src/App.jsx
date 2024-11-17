@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import allProducts from "./fake-data/all-products";
-import Categories from "./categories";
-import Products from "./Products";
+import Categories from "./Components/Categories";
+import Products from "./Components/Products";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("All");
