@@ -3,8 +3,8 @@
   gap: 16px;
   justify-content: center;
   grid-template-columns: repeat(2, 1fr);
-  height: fixed;
-  width: fixed;
+  height: 200%;
+  width: 100%;
 }
 
 .product-card {
@@ -16,8 +16,8 @@
 }
 
 .product-image {
-  height: fixed;
-  width: fixed;
+  height: 200%;
+  width: 100%;
   border-radius: 8px;
 }
 
