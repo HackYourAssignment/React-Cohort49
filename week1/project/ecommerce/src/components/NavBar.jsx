@@ -2,7 +2,7 @@ import Categories from "./Categories";
 
 const NavBar = () => {
   return (
-    <nav className="navbar">
+    <nav>
       <h1>Products</h1>
       <Categories />
     </nav>

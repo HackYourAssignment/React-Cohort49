@@ -6,10 +6,7 @@ import { useState } from "react";
 
 const Categories = () => {
   const normalizeCategoryName = (categoryName) => {
-    return categoryName
-      .replace(/^FAKE:\s*/, "")
-      .trim()
-      .toLowerCase();
+    return categoryName.replace(/^FAKE:\s*/, "").trim();
   };
 
   const [activeCategory, setActiveCategory] = useState(null);
@@ -32,7 +29,7 @@ const Categories = () => {
 
   return (
     <div>
-      <div className="Categories-container navbar">
+      <div className="Categories-container">
         {allCategories.map((category, index) => {
           return (
             <Category
@@ -45,9 +42,7 @@ const Categories = () => {
         })}
       </div>
 
-      <div className="all-products-container">
-        <AllProductsListing products={filteredProducts} />
-      </div>
+      <AllProductsListing products={filteredProducts} />
     </div>
   );
 };

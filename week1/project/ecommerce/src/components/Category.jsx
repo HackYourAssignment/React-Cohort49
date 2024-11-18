@@ -4,6 +4,7 @@ const Category = ({ title, onClick, isActive }) => {
   return (
     <>
       <button
+        className="category"
         onClick={() => {
           onClick(title);
         }}
