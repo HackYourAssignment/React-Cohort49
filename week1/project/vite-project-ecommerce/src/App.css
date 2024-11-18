@@ -16,9 +16,10 @@
 }
 
 .product-image {
-  height: 200%;
   width: 100%;
-  border-radius: 8px;
+  height: 200px;
+  object-fit: cover;
+  background-color: #f0f0f0;
 }
 
 .product-title {
