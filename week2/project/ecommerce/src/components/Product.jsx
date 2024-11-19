@@ -1,10 +1,13 @@
 import PropTypes from "prop-types";
 
-const Product = ({ image, title }) => {
+const Product = ({ image, title, description }) => {
   return (
-    <div className="product">
-      <img src={image} alt={title} />
-      <h4 className="product-title">{title}</h4>
+    <div className="product" id="product-detail">
+      <img className="product-image" src={image} alt={title} />
+      <h4 className="product-title" id="title">
+        {title}
+      </h4>
+      <p className="product-description">{description}</p>
     </div>
   );
 };

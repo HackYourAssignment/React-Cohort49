@@ -1,9 +1,14 @@
-import NavBar from "./components/NavBar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
   return (
     <div className="main-Page">
-      <NavBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products/:id" element={<ProductDetails />} />
+      </Routes>
     </div>
   );
 }

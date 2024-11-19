@@ -1,16 +1,29 @@
 import Product from "./Product";
 import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const AllProductsListing = ({ products }) => {
+  const navigate = useNavigate();
+
+  const handleClick = (id) => {
+    navigate(`/products/${id}`);
+  };
+
   return (
     <div className="all-products-container">
       {products.map((product) => {
         return (
-          <Product
+          <div
             key={product.id}
-            title={product.title}
-            image={product.image}
-          ></Product>
+            onClick={() => handleClick(product.id)}
+            style={{ cursor: "pointer" }}
+          >
+            <Product
+              key={product.id}
+              title={product.title}
+              image={product.image}
+            ></Product>
+          </div>
         );
       })}
     </div>
