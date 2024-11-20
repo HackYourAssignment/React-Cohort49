@@ -5,16 +5,19 @@ import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
 
 function App() {
-  const [activeCategory, setActiveCategory] = useState(null);
+  const [activeCategory, setActiveCategory] = useState('');
 
   return (
     <Router>
-      <div>
-        <CategoryList setActiveCategory={setActiveCategory} />
-        <Routes>
-          <Route path="/" element={<ProductList activeCategory={activeCategory} />} />
-          <Route path="/product/:id" element={<ProductDetail />} />
-        </Routes>
+      <div className="App">
+        <header className="header">
+          <h1 className="title">Products</h1>
+          <CategoryList setActiveCategory={setActiveCategory} />
+        </header>
+
+        <main className="content">
+          <ProductList activeCategory={activeCategory} />
+        </main>
       </div>
     </Router>
   );

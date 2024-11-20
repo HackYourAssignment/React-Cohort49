@@ -4,6 +4,7 @@ function CategoryList({ setActiveCategory }) {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [active, setActive] = useState(null); // Track active category
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products/categories')
@@ -23,6 +24,11 @@ function CategoryList({ setActiveCategory }) {
       });
   }, []);
 
+  const handleCategoryClick = (category) => {
+    setActive(category); // Set active category
+    setActiveCategory(category); // Notify parent component
+  };
+
   if (loading) return <p>Loading categories...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -36,16 +42,14 @@ function CategoryList({ setActiveCategory }) {
       {categories.map((category, index) => (
         <span
           key={index}
-          onClick={() => setActiveCategory(category)}
+          onClick={() => handleCategoryClick(category)}
           style={{
             padding: '8px 12px',
             textTransform: 'capitalize',
-            color: '#333',
-            borderBottom: '2px solid transparent',
+            color: active === category ? '#007BFF' : '#333', // Active state styling
+            borderBottom: active === category ? '2px solid #007BFF' : '2px solid transparent',
             transition: '0.3s',
           }}
-          onMouseOver={(e) => e.target.style.borderBottom = '2px solid #555'}
-          onMouseOut={(e) => e.target.style.borderBottom = '2px solid transparent'}
         >
           {category}
         </span>
