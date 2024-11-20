@@ -9,7 +9,8 @@ function App() {
     <div className="App">
       <header className="header">
         <h1 className="title">Products</h1>
-        <CategoryList setActiveCategory={setActiveCategory} />
+        {/* Pass activeCategory to CategoryList */}
+        <CategoryList activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
       </header>
       <main className="content">
         <ProductList activeCategory={activeCategory} />
