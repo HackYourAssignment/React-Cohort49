@@ -3,20 +3,26 @@ import { useState, useEffect } from "react";
 
 const ProductCard = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState(null);
   const [error, setError] = useState(null);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
         if (!response.ok) {
-          throw new Error("Error while fetching the product details.");
+          if (response.status === 404) {
+            setNotFound(true);
+          } else {
+            throw new Error("Error while fetching the product details.");
+          }
+        } else {
+          const data = await response.json();
+          setProduct(data);
         }
-        const data = await response.json();
-        setProduct(data);
       } catch (error) {
-        setError(error.message);
+        setError(error.message || "An unexpected error occurred.");
       }
     };
 
@@ -24,11 +30,15 @@ const ProductCard = () => {
   }, [id]);
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="error_message">Error: {error}</div>;
+  }
+
+  if (notFound) {
+    return <div className="not_found_message">Product not found.</div>;
   }
 
   if (!product) {
-    return <div>Loading product details...</div>;
+    return <div className="loading_message">Loading product details...</div>;
   }
 
   return (

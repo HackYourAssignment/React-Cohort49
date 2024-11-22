@@ -23,9 +23,9 @@ const CategoryList = ({
 
   return (
     <ul className="categories">
-      {categories.map((category, i) => (
+      {categories.map((category) => (
         <li
-          key={i}
+          key={category}
           className={`categories__item ${
             selectedCategory === category ? "categories__item__selected" : ""
           }`}
