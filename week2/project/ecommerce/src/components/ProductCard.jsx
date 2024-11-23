@@ -49,6 +49,7 @@ const ProductCard = () => {
       <div className="product_details__information">
         <div className="product_details__image">
           <div className="product_image__container">
+            <div></div>
             <img
               className="product__image"
               src={product.image}
