@@ -1,0 +1,158 @@
+body {
+  background-color: white;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.app h1 {
+  font-size: 4rem;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.products {
+  display: grid;
+  gap: 16px;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  height: 200%;
+  width: 100%;
+  background-color: white;
+}
+
+.product-card {
+  flex: 1 1 calc(100% / 3 - 20px);
+  border: 1px solid black;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+}
+
+.product-image {
+  height: 200%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.product-title {
+  margin-top: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.product-details {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .product-card {
+    border: 1px solid black;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    flex: 1 1 100%;
+  }
+}
+
+.categories button {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.categories button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.categories button:hover {
+  background-color: #f0f0f0;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.loading {
+  font-style: italic;
+  color: black;
+  font-size: 24px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: right;
+  gap: 10px;
+  font-size: 1.6rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.favourites-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.favourites-page img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.favourites-page p {
+  font-size: 1rem;
+  color: #333;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.favourite-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.favourite-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
