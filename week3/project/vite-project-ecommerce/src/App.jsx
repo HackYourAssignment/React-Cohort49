@@ -1,9 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./App.css";
 import Categories from "./Components/Categories";
 import Products from "./Components/Products";
 import ProductDetail from "./Components/ProductDetail";
+import FavouritesPage from "./Components/FavouritesPage";
+import { FavouritesProvider } from "./Components/FavouritesContext";
 
 function App() {
   const [categories, setCategories] = useState([]);
@@ -57,33 +60,39 @@ function App() {
   }, [selectedCategory]);
 
   return (
-    <Router>
-      <div className="app">
-        <h1>Products</h1>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                {loading && <p>Loading...</p>}
-                {error && <p className="error">{error}</p>}
-                {!loading && !error && (
-                  <>
-                    <Categories
-                      categories={categories}
-                      selectedCategory={selectedCategory}
-                      onCategorySelect={setSelectedCategory}
-                    />
-                    <Products products={products} />
-                  </>
-                )}
-              </>
-            }
-          />
-          <Route path="/product/:id" element={<ProductDetail />} />
-        </Routes>
-      </div>
-    </Router>
+    <FavouritesProvider>
+      <Router>
+        <div className="app">
+          <nav className="navbar">
+            <Link to="/">Home</Link> | <Link to="/favourites">Favourites</Link>
+          </nav>
+          <h1>Products</h1>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  {loading && <p>Loading...</p>}
+                  {error && <p className="error">{error}</p>}
+                  {!loading && !error && (
+                    <>
+                      <Categories
+                        categories={categories}
+                        selectedCategory={selectedCategory}
+                        onCategorySelect={setSelectedCategory}
+                      />
+                      <Products products={products} />
+                    </>
+                  )}
+                </>
+              }
+            />
+            <Route path="/product/:id" element={<ProductDetail />} />
+            <Route path="/favourites" element={<FavouritesPage />} />
+          </Routes>
+        </div>
+      </Router>
+    </FavouritesProvider>
   );
 }
 
