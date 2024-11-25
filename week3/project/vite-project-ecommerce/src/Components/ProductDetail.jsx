@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useFetch } from "../Components/useFetch";
-
+import { useFetch } from "./useFetch";
 const ProductDetail = () => {
   const { id } = useParams();
   const {
@@ -11,7 +10,7 @@ const ProductDetail = () => {
 
   return (
     <div className="product-details">
-      {loading && <p>Loading...</p>}
+      {loading && <p className="loading">Loading...</p>}
       {error && <p className="error">{error}</p>}
       {product && (
         <div>
