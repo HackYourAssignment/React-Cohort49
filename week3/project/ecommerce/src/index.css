@@ -1,0 +1,159 @@
+html {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+:root {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0 auto;
+  font-family: HelveticaNow, Helvetica, sans-serif;
+}
+
+.main-Page {
+  margin: 0 auto;
+}
+
+h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 0.67em 0;
+}
+.fav-link {
+  margin: 15px 5px 5px 86%;
+  padding: 5px;
+}
+.products-link {
+  margin: 5px 5px 5px 5px;
+}
+.Categories-container {
+  display: flex;
+}
+
+.category {
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+  padding: 12px;
+}
+
+.all-products-container {
+  display: grid;
+  grid-template-columns: repeat(4, 500px);
+  align-items: baseline;
+  gap: 1px;
+  margin: 20px;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.product {
+  margin: 0;
+  width: 60%;
+  height: 100%;
+}
+
+img {
+  margin-bottom: auto;
+  margin-top: auto;
+  max-height: 300px;
+  object-fit: contain;
+  width: 80%;
+}
+.product-title {
+  overflow: hidden;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.detail-page {
+  height: 100%;
+}
+
+button:focus,
+button:focus-visible {
+  background-color: #22201d;
+  color: #ffffff;
+}
+.error {
+  color: rgb(14, 10, 10);
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 auto;
+  border: 3px solid #080606;
+  padding: 20px;
+  background-color: #d15f5f;
+  color: black;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+  width: 100%;
+  height: 50%;
+  padding: 10px;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  grid-column: 4 / span 6;
+  grid-row: 1 / span 3;
+}
+
+.product-description {
+  padding: 10px;
+  grid-column: 1 / span 3;
+  grid-row: 3;
+  align-self: end;
+  font-size: large;
+  font-weight: normal;
+}
+.product-title {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+  font-weight: bold;
+}
+
+.favorite {
+  width: 35px;
+  height: 24px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  margin: 3px;
+  position: absolute;
+  top: 10px;
+  right: 60px;
+  outline: none;
+  border: none;
+}
+.favorites-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 10px;
+  width: 100%;
+  height: 50%;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  .all-products-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
