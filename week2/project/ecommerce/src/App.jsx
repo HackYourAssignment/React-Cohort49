@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import CategoryList from "./components/CategoryList";
-import ProductList from "./components/ProductList";
+import NavBar from "./components/NavBar";
 import ProductCard from "./components/ProductCard";
+import FavouritesPage from "./components/FavouritesPage";
+import { FavouritesProvider } from "./context/FavouritesContext";
+import HomePage from "./components/HomePage";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -63,31 +64,30 @@ function App() {
   }, [selectedCategory]);
 
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <h1>Products</h1>
-              <CategoryList
+    <FavouritesProvider>
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
                 categories={categories}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}
-                loading={categoriesLoading}
-                error={categoriesError}
-              />
-              <ProductList
+                categoriesLoading={categoriesLoading}
+                categoriesError={categoriesError}
                 products={products}
-                loading={productsLoading}
-                error={productsError}
+                productsLoading={productsLoading}
+                productsError={productsError}
               />
-            </>
-          }
-        />
-        <Route path="/product/:id" element={<ProductCard />} />
-      </Routes>
-    </Router>
+            }
+          />
+          <Route path="/product/:id" element={<ProductCard />} />
+          <Route path="/favourites" element={<FavouritesPage />} />
+        </Routes>
+      </Router>
+    </FavouritesProvider>
   );
 }
 
