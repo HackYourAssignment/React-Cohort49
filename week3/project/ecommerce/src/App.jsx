@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import CategoryList from './components/CategoryList';
 import ProductList from './components/ProductList';
 import ProductDetail from './components/ProductDetail';
-import FavouritesPage from './components/FavouritesPage'; // Import FavouritesPage component
+import FavouritesPage from './components/FavouritesPage'; 
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('');
