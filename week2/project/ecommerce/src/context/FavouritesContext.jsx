@@ -6,9 +6,13 @@ export const FavouritesProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
 
   const toggleFavourite = (id) => {
-    setFavourites((prev) =>
-      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
-    );
+    setFavourites((prev) => {
+      const updated = prev.includes(id)
+        ? prev.filter((fav) => fav !== id)
+        : [...prev, id];
+      console.log("Updated favourites:", updated); // Debugging
+      return updated;
+    });
   };
 
   return (
