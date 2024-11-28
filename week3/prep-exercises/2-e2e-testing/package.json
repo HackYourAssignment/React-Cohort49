@@ -1,0 +1,15 @@
+{
+  "name": "2-e2e-testing",
+  "version": "1.0.0",
+  "description": "As mentioned in the reading materials, end-to-end testing is becoming more and more popular as it is as close to testing the user experience as you can get. Where in the past the theory was to test every component separately to identify errors early in development, with the current technologies testing end-to-end is becoming fast enough to be able to identify issues early on as well.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.16.0"
+  }
+}
