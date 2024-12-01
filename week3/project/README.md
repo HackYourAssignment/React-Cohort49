@@ -2,7 +2,7 @@
 
 ## 1. Setup
 
-Make sure you created a new week3 branch from the `main` branch of your forked repo. Then copy over the `ecommerce` folder you made last week into the `week3/project` folder.
+Make sure you created a new week3 branch from the `main` branch of your forked repo. Then copy over the `ecommerce` Vfolder you made last week into the `week3/project` folder.
 
 Copy over the `assets` folder to your `ecommerce/src` folder. We will use these svg files for our favourites functionality.
 
