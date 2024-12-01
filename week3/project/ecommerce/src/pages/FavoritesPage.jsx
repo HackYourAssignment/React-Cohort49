@@ -1,4 +1,4 @@
-import  { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useFavorites } from "../context/FavoritesContext";
 import ProductCard from "../comps/ProductCard";
 
@@ -8,13 +8,12 @@ const FavoritesPage = () => {
 
   useEffect(() => {
     const fetchFavorites = async () => {
-      const fetchedProducts = await Promise.all(
-        favorites.map((id) =>
-          fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
-            res.json()
-          )
-        )
-      );
+      const fetchedProducts = [];
+      for (const id of favorites) {
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const product = await response.json();
+        fetchedProducts.push(product);
+      }
       setProducts(fetchedProducts);
     };
 

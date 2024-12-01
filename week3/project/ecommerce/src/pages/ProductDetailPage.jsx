@@ -11,9 +11,9 @@ const FavoritesPage = () => {
       const fetchedProducts = await Promise.all(
         favorites.map((id) =>
           fetch(`https://fakestoreapi.com/products/${id}`).then((res) =>
-            res.json()
-          )
-        )
+            res.json(),
+          ),
+        ),
       );
       setProducts(fetchedProducts);
     };

@@ -1,8 +1,8 @@
-import React, { memo } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useFavorites } from "../context/FavoritesContext";
 
-const ProductCard = memo(({ product }) => {
+const ProductCard = ({ product }) => {
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorite = favorites.includes(product.id);
 
@@ -36,6 +36,6 @@ const ProductCard = memo(({ product }) => {
       </Link>
     </div>
   );
-});
+};
 
 export default ProductCard;

@@ -27,7 +27,7 @@ export const FavoritesProvider = ({ children }) => {
       favorites: favoritesState,
       toggleFavorite,
     }),
-    [favoritesState]
+    [favoritesState],
   );
 
   return (

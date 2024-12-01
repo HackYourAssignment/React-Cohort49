@@ -1,4 +1,4 @@
-import  { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import CategoryList from "../comps/CategoryList";
 import ProductList from "../comps/ProductList";
 
@@ -13,7 +13,7 @@ const HomePage = () => {
     const fetchCategories = async () => {
       try {
         const response = await fetch(
-          "https://fakestoreapi.com/products/categories"
+          "https://fakestoreapi.com/products/categories",
         );
         const data = await response.json();
         setCategories(["All", ...data]);
