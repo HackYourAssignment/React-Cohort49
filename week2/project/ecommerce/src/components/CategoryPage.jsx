@@ -14,7 +14,7 @@ function CategoryPage() {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://fakestoreapi.com/products/categories"
+        "https://fakestoreapi.com/products/categories",
       );
       if (!response.ok) throw new Error("Failed to fetch categories");
       const data = await response.json();
@@ -31,9 +31,9 @@ function CategoryPage() {
       const response = await fetch(
         category
           ? `https://fakestoreapi.com/products/category/${category}`
-          : "https://fakestoreapi.com/products"
+          : "https://fakestoreapi.com/products",
       );
-        //error handdle
+      //error handdle
       if (!response.ok) throw new Error("Failed to fetch products");
       //parser
       const data = await response.json();
@@ -46,7 +46,7 @@ function CategoryPage() {
     }
   };
 
-useEffect(() => {
+  useEffect(() => {
     fetchCategories(setCategories, setLoading, setError);
   }, []);
 
@@ -57,14 +57,14 @@ useEffect(() => {
 
   return (
     <div>
-          <h1>Product Categories</h1>
-          {/* loading logic */}
+      <h1>Product Categories</h1>
+      {/* loading logic */}
       {loading && <Loader />}
 
       {/* error handle logic */}
       {error && <ErrorMessage message={error} />}
-          <ul>
-              {/* show category */}
+      <ul>
+        {/* show category */}
         {categories.map((category) => (
           <li key={category} onClick={() => handleCategoryClick(category)}>
             {category}
