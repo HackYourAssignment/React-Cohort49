@@ -1,0 +1,10 @@
+html {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: xx-large;
+  color: white;
+  height: 90%;
+  width: 90%;
+}
