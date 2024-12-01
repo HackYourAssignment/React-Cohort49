@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const ProductList = ({ products }) => {
   return (
@@ -10,7 +10,9 @@ const ProductList = ({ products }) => {
             <h2>{product.title}</h2>
             <p>{product.description}</p>
             <p>Price: ${product.price}</p>
-            <p>Rating: {product.rating.rate} ({product.rating.count} reviews)</p>
+            <p>
+              Rating: {product.rating.rate} ({product.rating.count} reviews)
+            </p>
           </div>
         ))
       ) : (

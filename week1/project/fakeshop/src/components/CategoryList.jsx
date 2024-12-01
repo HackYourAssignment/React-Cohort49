@@ -1,14 +1,16 @@
 // src/components/CategoryList.jsx
-import React from 'react';
+import React from "react";
 
 const CategoryList = ({ categories, onCategoryClick }) => {
   return (
     <div className="category-list">
       {categories.map((category, index) => (
-        <button key={index} onClick={() => { 
-          console.log("Category clicked: ", category); // Tıklanan kategoriyi kontrol edelim
-          onCategoryClick(category); 
-        }}>
+        <button
+          key={index}
+          onClick={() => {
+            onCategoryClick(category);
+          }}
+        >
           {category}
         </button>
       ))}

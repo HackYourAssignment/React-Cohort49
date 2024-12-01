@@ -1,5 +1,5 @@
 // src/components/CategoryList.jsx
-import React from 'react';
+import React from "react";
 
 const CategoryList = ({ categories, onCategoryClick }) => {
   return (
