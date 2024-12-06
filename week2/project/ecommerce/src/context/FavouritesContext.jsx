@@ -6,13 +6,9 @@ export const FavouritesProvider = ({ children }) => {
   const [favourites, setFavourites] = useState([]);
 
   const toggleFavourite = (id) => {
-    setFavourites((prev) => {
-      const updated = prev.includes(id)
-        ? prev.filter((fav) => fav !== id)
-        : [...prev, id];
-      console.log("Updated favourites:", updated); // Debugging
-      return updated;
-    });
+    setFavourites((prev) =>
+      prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
+    );
   };
 
   return (
@@ -22,4 +18,12 @@ export const FavouritesProvider = ({ children }) => {
   );
 };
 
-export const useFavourites = () => useContext(FavouritesContext);
+export const useFavourites = () => {
+  const context = useContext(FavouritesContext);
+
+  if (!context) {
+    throw new Error("useFavourites must be used within a FavouritesProvider");
+  }
+
+  return context;
+};
