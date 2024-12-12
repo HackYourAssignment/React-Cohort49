@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function ProductDetail() {
   const { id } = useParams();
@@ -35,6 +35,20 @@ function ProductDetail() {
       <p>{product.description}</p>
       <p>Price: ${product.price}</p>
       <p>Category: {product.category}</p>
+      <Link
+        to="/"
+        style={{
+          display: 'inline-block',
+          marginTop: '20px',
+          padding: '10px 15px',
+          backgroundColor: '#007BFF',
+          color: '#fff',
+          textDecoration: 'none',
+          borderRadius: '5px',
+        }}
+      >
+        Back to Home
+      </Link>
     </div>
   );
 }

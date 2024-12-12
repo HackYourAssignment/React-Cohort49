@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function ProductList({ activeCategory }) {
   const [products, setProducts] = useState([]);
@@ -42,9 +43,12 @@ function ProductList({ activeCategory }) {
       }}
     >
       {products.map((product) => (
-        <div
+        <Link
+          to={`/products/${product.id}`} // Navigate to product detail page
           key={product.id}
           style={{
+            textDecoration: 'none',
+            color: 'inherit',
             border: '1px solid #ddd',
             borderRadius: '8px',
             padding: '10px',
@@ -63,7 +67,7 @@ function ProductList({ activeCategory }) {
           />
           <h3 style={{ fontSize: '16px', margin: '10px 0' }}>{product.title}</h3>
           <p style={{ color: '#666' }}>{product.price}$</p>
-        </div>
+        </Link>
       ))}
     </div>
   );
