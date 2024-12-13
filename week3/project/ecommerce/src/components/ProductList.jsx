@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useFavourites } from '../context/FavouritesContext';
-import useFetch from '../hooks/useFetch'; 
+import useFetch from '../hooks/useFetch';
 import heartRegular from '../assets/heart-regular.svg';
 import heartSolid from '../assets/heart-solid.svg';
 
@@ -34,19 +35,24 @@ function ProductList({ activeCategory }) {
             textAlign: 'center',
           }}
         >
-          <img
-            src={product.image}
-            alt={product.title}
-            style={{
-              width: '100%',
-              height: '150px',
-              objectFit: 'cover',
-              marginBottom: '10px',
-            }}
-          />
-          <h3 style={{ fontSize: '16px', margin: '10px 0' }}>{product.title}</h3>
+          {/* Wrap product image and title in Link */}
+          <Link
+            to={`/product/${product.id}`}
+            style={{ textDecoration: 'none', color: 'inherit' }}
+          >
+            <img
+              src={product.image}
+              alt={product.title}
+              style={{
+                width: '100%',
+                height: '150px',
+                objectFit: 'cover',
+                marginBottom: '10px',
+              }}
+            />
+            <h3 style={{ fontSize: '16px', margin: '10px 0' }}>{product.title}</h3>
+          </Link>
           <p style={{ color: '#666' }}>{product.price}$</p>
-          {/* heart toggle */}
           <img
             src={favourites.includes(product.id) ? heartSolid : heartRegular}
             alt={favourites.includes(product.id) ? 'Remove from favourites' : 'Add to favourites'}
