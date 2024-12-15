@@ -1,0 +1,30 @@
+.favorites-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.favorites-card {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    text-align: center;
+    width: 200px;
+}
+
+.favorites-card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.favorites-card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.favorites-card p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}

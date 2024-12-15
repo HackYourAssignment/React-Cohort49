@@ -1,0 +1,101 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+.App {
+  margin: 8px;
+}
+
+.App h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.category {
+  display: flex;
+  gap: 5px;
+}
+
+.category-item {
+  background-color: #efeff0;
+  cursor: pointer;
+  font-weight: 700;
+  margin: 2px;
+  padding: 12px;
+}
+
+.selected {
+  background-color: #bdbdc1;
+}
+
+.products {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.products-item {
+  margin: 8px;
+  width: 300px;
+}
+
+.products-item-img {
+  max-height: 300px;
+  object-fit: contain;
+  width: 300px;
+  height: 300px;
+}
+
+.products-item h3 {
+  overflow: hidden;
+  padding-top: 8px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-card {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.product-card-img {
+  width: 400px;
+  height: 400px;
+}
+
+.product-card-info {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.fav-btn {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.img-fav {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 10px;
+}
